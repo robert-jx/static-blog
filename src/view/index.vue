@@ -1,21 +1,30 @@
 <template>
     <div class="home">
-        <section class="back-image"></section>
-        <section class="content">
-            <section class="user">
-                <section class="head-image">
+        <div class="back-image">
+            <section>{{ userinfo.name }}的个人博客</section>
+        </div>
+        <div class="content">
+            <div class="user">
+                <div class="head-image">
                     <img src="@/assets/images/user/head.jpg" alt="">
-                </section>
-                <section class="info">
+                </div>
+                <div class="info">
                     123
-                </section>
-            </section>
-        </section>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-
+import { reactive } from 'vue';
+// 配置项内容
+export interface userInterface {
+    name?: string,
+}
+let userinfo: userInterface = reactive({
+    name: 'robert-jx'
+});
 </script>
 
 <style lang="scss" scoped>
@@ -28,6 +37,13 @@
         height: 100%;
         background: url('../assets/images/background/background.jpg') no-repeat;
         background-size: 100% 100%;
+
+        color: #e3e3e3;
+        font-size: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
     }
 
     .content {
